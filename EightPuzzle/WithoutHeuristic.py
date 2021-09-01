@@ -23,21 +23,16 @@ class priorityQueue:
 
 class node:
 	
-	def __init__(self, parent, mat, empty_tile_pos,
-				cost, level):
-					
+	def __init__(self, parent, mat, empty_tile_pos, cost, level):
 		self.parent = parent
-
 		self.mat = mat
-
 		self.empty_tile_pos = empty_tile_pos
-
 		self.cost = cost
-
 		self.level = level
 
 	def __lt__(self, nxt):
 		return self.cost < nxt.cost
+
 
 def calculateCost(mat, final) -> int:
 	
@@ -48,6 +43,7 @@ def calculateCost(mat, final) -> int:
 				count += 1
 				
 	return count
+
 
 def newNode(mat, empty_tile_pos, new_empty_tile_pos, level, parent, final) -> node:
 				
@@ -65,6 +61,7 @@ def newNode(mat, empty_tile_pos, new_empty_tile_pos, level, parent, final) -> no
 					cost, level)
 	return new_node
 
+
 def printMatrix(mat):
 	
 	for i in range(n):
@@ -73,36 +70,33 @@ def printMatrix(mat):
 			
 		print()
 
-def isSafe(x, y):
-	
+
+def isSafe(x, y):	
 	return x >= 0 and x < n and y >= 0 and y < n
 
-def printPath(root):
-	
+
+def printPath(root):	
 	if root == None:
 		return
-	
 	printPath(root.parent)
 	printMatrix(root.mat)
 	print()
 
-def solve(initial, empty_tile_pos, final):
-	
-	pq = priorityQueue()
 
+def solve(initial, empty_tile_pos, final):	
+	pq = priorityQueue()
 	cost = calculateCost(initial, final)
 	root = node(None, initial,empty_tile_pos, cost, 0)
-
 	pq.push(root)
 
 	while not pq.empty():
-
 		minimum = pq.pop()
 
 		if minimum.cost == 0:
-			
 			printPath(minimum)
 			return
+
+			
 
 		for i in range(n):
 			new_tile_pos = [
@@ -110,9 +104,7 @@ def solve(initial, empty_tile_pos, final):
 				minimum.empty_tile_pos[1] + col[i], ]
 				
 			if isSafe(new_tile_pos[0], new_tile_pos[1]):
-				
 				child = newNode(minimum.mat, minimum.empty_tile_pos, new_tile_pos, minimum.level + 1, minimum, final,)
-
 				pq.push(child)
 
 
