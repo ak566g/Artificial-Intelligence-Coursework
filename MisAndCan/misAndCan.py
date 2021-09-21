@@ -1,4 +1,4 @@
-start,end =[3,3,1],[0,0,0] 
+start,end =[3,3,0],[0,0,1] 
  
 def do_action(state,action):  
     if state[2] == 1: 
