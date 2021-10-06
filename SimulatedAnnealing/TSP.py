@@ -58,7 +58,7 @@ def Draw(width, height, cities, solution, infos):
     
 WIDTH = 640
 HEIGHT = 480
-CITY_COUNT = 20
+CITY_COUNT = 10
 INITIAL_TEMPERATURE = 1000
 STOPPING_TEMPERATURE = 1
 TEMPERATURE_DECAY = 0.999
