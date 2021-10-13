@@ -52,7 +52,7 @@ class WumpusWorld:
         elif (x,ymax-y) in self.gold:
           print('G',end='')
         elif self.player == (x, ymax - y):
-          print('Y',end='')
+          print('A',end='')
         else:
           print(' ',end='')
       print("")
