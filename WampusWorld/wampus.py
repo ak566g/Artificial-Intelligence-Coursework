@@ -379,7 +379,7 @@ for x in range(width+1):
     blocks.add((width,x))
     blocks.add((x, width))
 
-gold = {(4,1)}
+gold = {(3,1)}
 pits = {(3,3)}
 wumpus_location = {(2,2)}
 initial_location = (1,1)
